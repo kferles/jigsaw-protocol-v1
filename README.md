@@ -81,6 +81,7 @@ Specific tests can be run using `forge test` conventions, specified in more deta
 | `deploy-pythOracle`       | Deploy PythOracle Factory & PythOracle Implementation |
 | `deploy-registries`       | Deploy SharesRegistry Contracts for each collateral   |
 | `deploy-uniswapV3Oracle`  | Deploy UniswapV3Oracle custom TWAP Oracle             |
+| `deploy-protocol`         | Deploy the entire protocol on a local Anvil instance |
 
 ## Audit Reports
 

@@ -124,4 +124,12 @@ deploy-registries:  && _timer
 deploy-uniswapV3Oracle: && _timer
 	#!/usr/bin/env bash
 	echo "Deploying UniswapV3Oracle to $CHAIN..."
-	eval "forge script DeployUniswapV3Oracle --rpc-url \"\${${CHAIN}_RPC_URL}\" --slow -vvvv --etherscan-api-key \"\${${CHAIN}_ETHERSCAN_API_KEY}\" --verify --broadcast"
+        eval "forge script DeployUniswapV3Oracle --rpc-url \"\${${CHAIN}_RPC_URL}\" --slow -vvvv --etherscan-api-key \"\${${CHAIN}_ETHERSCAN_API_KEY}\" --verify --broadcast"
+
+# Deploy the entire protocol on a local Anvil instance
+deploy-protocol: && _timer
+        #!/usr/bin/env bash
+        echo "Deploying protocol on local Anvil..."
+        forge script deployment/09_DeployProtocol.s.sol \
+            --fork-url http://127.0.0.1:8545 \
+            -vvvv --broadcast
